@@ -19,7 +19,7 @@ from PySide6.QtWidgets import (QApplication, QGroupBox, QHBoxLayout, QLabel,
     QPushButton, QSizePolicy, QSlider, QSpacerItem,
     QVBoxLayout, QWidget)
 
-from rawpreviewwidget import rawPreviewWidget
+from .raw_preview_widget import RawPreviewWidget
 
 class Ui_eCCM(object):
     def setupUi(self, eCCM):
@@ -30,7 +30,7 @@ class Ui_eCCM(object):
         self.horizontalLayout = QHBoxLayout(eCCM)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(4, 4, 4, 4)
-        self.rawPreviewWidget = rawPreviewWidget(eCCM)
+        self.rawPreviewWidget = RawPreviewWidget(eCCM)
         self.rawPreviewWidget.setObjectName(u"rawPreviewWidget")
         self.rawPreviewWidget.setStyleSheet(u"background-color: rgb(100, 100, 100);")
 
@@ -151,17 +151,17 @@ class Ui_eCCM(object):
 
         self.retranslateUi(eCCM)
         self.importRawBtn.clicked.connect(eCCM.import_raw_file)
-        self.adjTopOuterBtn.clicked.connect(self.rawPreviewWidget.adjRoiOuterTop)
-        self.adjBottomOuterBtn.clicked.connect(self.rawPreviewWidget.adjRoiOuterBottom)
-        self.adjLeftOuterBtn.clicked.connect(self.rawPreviewWidget.adjRoiOuterLeft)
-        self.adjRightOuterBtn.clicked.connect(self.rawPreviewWidget.adjRoiOuterRight)
-        self.adjTopInnerBtn.clicked.connect(self.rawPreviewWidget.adjRoiInnerTop)
-        self.pushButton_2.clicked.connect(self.rawPreviewWidget.adjRoiInnerLeft)
-        self.pushButton.clicked.connect(self.rawPreviewWidget.adjRoiInnerBottom)
-        self.pushButton_3.clicked.connect(self.rawPreviewWidget.adjRoiInnerRight)
-        self.previewBrightSlider.valueChanged.connect(self.rawPreviewWidget.previewBrightAdj)
+        self.adjTopOuterBtn.clicked.connect(self.rawPreviewWidget.adj_roi_outertop)
+        self.adjBottomOuterBtn.clicked.connect(self.rawPreviewWidget.adj_roi_outerbottom)
+        self.adjLeftOuterBtn.clicked.connect(self.rawPreviewWidget.adj_roi_outerleft)
+        self.adjRightOuterBtn.clicked.connect(self.rawPreviewWidget.adj_roi_outerright)
+        self.adjTopInnerBtn.clicked.connect(self.rawPreviewWidget.adj_roi_innertop)
+        self.pushButton_2.clicked.connect(self.rawPreviewWidget.adj_roi_innerleft)
+        self.pushButton.clicked.connect(self.rawPreviewWidget.adj_roi_innerbottom)
+        self.pushButton_3.clicked.connect(self.rawPreviewWidget.adj_roi_innerright)
+        self.previewBrightSlider.valueChanged.connect(self.rawPreviewWidget.preview_brigh_adj)
         self.previewBrightSlider.valueChanged.connect(eCCM.show_preview_bright)
-        self.patchSizeSlider.valueChanged.connect(self.rawPreviewWidget.patchSizeChange)
+        self.patchSizeSlider.valueChanged.connect(self.rawPreviewWidget.patch_size_change)
         self.calcuateCcmBtn.clicked.connect(eCCM.calculate_ccm)
         self.importTargetBtn.clicked.connect(eCCM.import_target_file)
 

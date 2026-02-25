@@ -1,0 +1,10 @@
+{
+    "pylint.args": [
+        "--max-line-length=120",
+        "--disable=maybe-no-member",
+        "--extension-pkg-whitelist=PySide6",
+        "--extension-pkg-allow-list=demosaic"
+    ],
+    "pylint.interpreter": [".\\.venv\\Scripts\\python.exe"],
+    "editor.renderWhitespace": "all"
+}

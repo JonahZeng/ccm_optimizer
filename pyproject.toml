@@ -1,0 +1,13 @@
+[project]
+name = "ccm-optimizer"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "jaxtyping>=0.3.7",
+    "nuitka>=4.0",
+    "numpy>=2.2.6",
+    "pyside6>=6.10.2",
+    "setuptools>=80.10.2",
+]
