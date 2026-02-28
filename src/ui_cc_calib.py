@@ -8,142 +8,147 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QGroupBox, QHBoxLayout, QLabel,
+from PySide6.QtCore import (QCoreApplication, QMetaObject, QRect,
+    QSize, Qt)
+from PySide6.QtWidgets import (QGroupBox, QHBoxLayout, QLabel, QComboBox,
     QPushButton, QSizePolicy, QSlider, QSpacerItem,
-    QVBoxLayout, QWidget)
+    QVBoxLayout)
 
 from .raw_preview_widget import RawPreviewWidget
 
 class Ui_eCCM(object):
     def setupUi(self, eCCM):
         if not eCCM.objectName():
-            eCCM.setObjectName(u"eCCM")
+            eCCM.setObjectName("eCCM")
         eCCM.resize(1262, 778)
-        eCCM.setStyleSheet(u"")
+        eCCM.setStyleSheet("")
         self.horizontalLayout = QHBoxLayout(eCCM)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setObjectName("horizontalLayout")
         self.horizontalLayout.setContentsMargins(4, 4, 4, 4)
         self.rawPreviewWidget = RawPreviewWidget(eCCM)
-        self.rawPreviewWidget.setObjectName(u"rawPreviewWidget")
-        self.rawPreviewWidget.setStyleSheet(u"background-color: rgb(100, 100, 100);")
+        self.rawPreviewWidget.setObjectName("rawPreviewWidget")
+        self.rawPreviewWidget.setStyleSheet("background-color: rgb(100, 100, 100);")
 
         self.horizontalLayout.addWidget(self.rawPreviewWidget)
 
         self.verticalLayout = QVBoxLayout()
-        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setObjectName("verticalLayout")
         self.importRawBtn = QPushButton(eCCM)
-        self.importRawBtn.setObjectName(u"importRawBtn")
-        self.importRawBtn.setStyleSheet(u"background-color: rgb(170, 170, 255);\n"
+        self.importRawBtn.setObjectName("importRawBtn")
+        self.importRawBtn.setStyleSheet("background-color: rgb(170, 170, 255);\n"
 "")
 
-        self.verticalLayout.addWidget(self.importRawBtn)
+        self.verticalLayout.addWidget(self.importRawBtn) # 0
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.verticalLayout.addItem(self.verticalSpacer)
+        self.verticalLayout.addItem(self.verticalSpacer) # 1
 
         self.label = QLabel(eCCM)
-        self.label.setObjectName(u"label")
+        self.label.setObjectName("label")
 
-        self.verticalLayout.addWidget(self.label)
+        self.verticalLayout.addWidget(self.label) # 2
 
         self.patchSizeSlider = QSlider(eCCM)
-        self.patchSizeSlider.setObjectName(u"patchSizeSlider")
+        self.patchSizeSlider.setObjectName("patchSizeSlider")
         self.patchSizeSlider.setMaximum(80)
         self.patchSizeSlider.setPageStep(5)
         self.patchSizeSlider.setValue(80)
-        self.patchSizeSlider.setOrientation(Qt.Horizontal)
+        self.patchSizeSlider.setOrientation(Qt.Orientation.Horizontal)
 
-        self.verticalLayout.addWidget(self.patchSizeSlider)
+        self.verticalLayout.addWidget(self.patchSizeSlider) # 3
 
         self.groupBox = QGroupBox(eCCM)
-        self.groupBox.setObjectName(u"groupBox")
+        self.groupBox.setObjectName("groupBox")
         self.groupBox.setMinimumSize(QSize(166, 209))
         self.adjTopOuterBtn = QPushButton(self.groupBox)
-        self.adjTopOuterBtn.setObjectName(u"adjTopOuterBtn")
+        self.adjTopOuterBtn.setObjectName("adjTopOuterBtn")
         self.adjTopOuterBtn.setGeometry(QRect(40, 20, 75, 24))
-        self.adjTopOuterBtn.setStyleSheet(u"background-color: rgb(128, 128, 128);")
+        self.adjTopOuterBtn.setStyleSheet("background-color: rgb(128, 128, 128);")
         self.adjLeftOuterBtn = QPushButton(self.groupBox)
-        self.adjLeftOuterBtn.setObjectName(u"adjLeftOuterBtn")
+        self.adjLeftOuterBtn.setObjectName("adjLeftOuterBtn")
         self.adjLeftOuterBtn.setGeometry(QRect(0, 80, 21, 61))
-        self.adjLeftOuterBtn.setStyleSheet(u"background-color: rgb(128, 128, 128);")
+        self.adjLeftOuterBtn.setStyleSheet("background-color: rgb(128, 128, 128);")
         self.adjRightOuterBtn = QPushButton(self.groupBox)
-        self.adjRightOuterBtn.setObjectName(u"adjRightOuterBtn")
+        self.adjRightOuterBtn.setObjectName("adjRightOuterBtn")
         self.adjRightOuterBtn.setGeometry(QRect(140, 80, 21, 61))
-        self.adjRightOuterBtn.setStyleSheet(u"background-color: rgb(128, 128, 128);")
+        self.adjRightOuterBtn.setStyleSheet("background-color: rgb(128, 128, 128);")
         self.adjBottomOuterBtn = QPushButton(self.groupBox)
-        self.adjBottomOuterBtn.setObjectName(u"adjBottomOuterBtn")
+        self.adjBottomOuterBtn.setObjectName("adjBottomOuterBtn")
         self.adjBottomOuterBtn.setGeometry(QRect(40, 180, 75, 24))
-        self.adjBottomOuterBtn.setStyleSheet(u"background-color: rgb(128, 128, 128);")
+        self.adjBottomOuterBtn.setStyleSheet("background-color: rgb(128, 128, 128);")
         self.adjTopInnerBtn = QPushButton(self.groupBox)
-        self.adjTopInnerBtn.setObjectName(u"adjTopInnerBtn")
+        self.adjTopInnerBtn.setObjectName("adjTopInnerBtn")
         self.adjTopInnerBtn.setGeometry(QRect(40, 50, 75, 23))
-        self.adjTopInnerBtn.setStyleSheet(u"background-color: rgb(128, 128, 128);")
-        self.pushButton = QPushButton(self.groupBox)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(40, 150, 75, 23))
-        self.pushButton.setStyleSheet(u"background-color: rgb(128, 128, 128);")
-        self.pushButton_2 = QPushButton(self.groupBox)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.setGeometry(QRect(30, 80, 21, 61))
-        self.pushButton_2.setStyleSheet(u"background-color: rgb(128, 128, 128);")
-        self.pushButton_3 = QPushButton(self.groupBox)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-        self.pushButton_3.setGeometry(QRect(111, 80, 20, 61))
-        self.pushButton_3.setStyleSheet(u"background-color: rgb(128, 128, 128);")
+        self.adjTopInnerBtn.setStyleSheet("background-color: rgb(128, 128, 128);")
+        self.adjBottomInnerBtn = QPushButton(self.groupBox)
+        self.adjBottomInnerBtn.setObjectName("adjBottomInnerBtn")
+        self.adjBottomInnerBtn.setGeometry(QRect(40, 150, 75, 23))
+        self.adjBottomInnerBtn.setStyleSheet("background-color: rgb(128, 128, 128);")
+        self.adjLeftInnerBtn = QPushButton(self.groupBox)
+        self.adjLeftInnerBtn.setObjectName("adjLeftInnerBtn")
+        self.adjLeftInnerBtn.setGeometry(QRect(30, 80, 21, 61))
+        self.adjLeftInnerBtn.setStyleSheet("background-color: rgb(128, 128, 128);")
+        self.adjRightInnerBtn = QPushButton(self.groupBox)
+        self.adjRightInnerBtn.setObjectName("adjRightInnerBtn")
+        self.adjRightInnerBtn.setGeometry(QRect(111, 80, 20, 61))
+        self.adjRightInnerBtn.setStyleSheet("background-color: rgb(128, 128, 128);")
 
-        self.verticalLayout.addWidget(self.groupBox)
+        self.verticalLayout.addWidget(self.groupBox) # 4
 
         self.previewBrightLabel = QLabel(eCCM)
-        self.previewBrightLabel.setObjectName(u"previewBrightLabel")
+        self.previewBrightLabel.setObjectName("previewBrightLabel")
 
-        self.verticalLayout.addWidget(self.previewBrightLabel)
+        self.verticalLayout.addWidget(self.previewBrightLabel) # 5
 
         self.previewBrightSlider = QSlider(eCCM)
-        self.previewBrightSlider.setObjectName(u"previewBrightSlider")
+        self.previewBrightSlider.setObjectName("previewBrightSlider")
         self.previewBrightSlider.setMaximum(40)
         self.previewBrightSlider.setSingleStep(1)
         self.previewBrightSlider.setPageStep(2)
         self.previewBrightSlider.setValue(10)
-        self.previewBrightSlider.setOrientation(Qt.Horizontal)
+        self.previewBrightSlider.setOrientation(Qt.Orientation.Horizontal)
 
-        self.verticalLayout.addWidget(self.previewBrightSlider)
+        self.verticalLayout.addWidget(self.previewBrightSlider) # 6
 
-        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.verticalLayout.addItem(self.verticalSpacer_4)
+        self.verticalLayout.addItem(self.verticalSpacer_4) # 7
 
         self.importTargetBtn = QPushButton(eCCM)
-        self.importTargetBtn.setObjectName(u"importTargetBtn")
-        self.importTargetBtn.setStyleSheet(u"background-color: rgb(128, 128, 128);")
+        self.importTargetBtn.setObjectName("importTargetBtn")
+        self.importTargetBtn.setStyleSheet("background-color: rgb(128, 128, 128);")
 
-        self.verticalLayout.addWidget(self.importTargetBtn)
+        self.verticalLayout.addWidget(self.importTargetBtn) # 8
 
-        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.optimizeModeComboBox = QComboBox(eCCM)
+        self.optimizeModeComboBox.setObjectName("optimizeModeComboBox")
+        self.optimizeModeComboBox.addItem("gd with bp")
+        self.optimizeModeComboBox.addItem("gd without bp")
+        optimizeModeLabel = QLabel("optimization method:", parent=eCCM)
+        optimizeModeLayout = QHBoxLayout()
+        optimizeModeLayout.addWidget(optimizeModeLabel)
+        optimizeModeLayout.addWidget(self.optimizeModeComboBox)
+        self.verticalLayout.addLayout(optimizeModeLayout) # 9
 
-        self.verticalLayout.addItem(self.verticalSpacer_3)
+        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer_3)  # 10
 
         self.calcuateCcmBtn = QPushButton(eCCM)
-        self.calcuateCcmBtn.setObjectName(u"calcuateCcmBtn")
-        self.calcuateCcmBtn.setStyleSheet(u"background-color: rgb(85, 170, 127);")
+        self.calcuateCcmBtn.setObjectName("calcuateCcmBtn")
+        self.calcuateCcmBtn.setStyleSheet("background-color: rgb(85, 170, 127);")
 
-        self.verticalLayout.addWidget(self.calcuateCcmBtn)
+        self.verticalLayout.addWidget(self.calcuateCcmBtn) # 11
 
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.verticalLayout.addItem(self.verticalSpacer_2)
+        self.verticalLayout.addItem(self.verticalSpacer_2) # 12
 
         self.verticalLayout.setStretch(1, 1)
         self.verticalLayout.setStretch(4, 1)
-        self.verticalLayout.setStretch(9, 1)
-        self.verticalLayout.setStretch(11, 1)
+        self.verticalLayout.setStretch(10, 1)
+        self.verticalLayout.setStretch(12, 1)
 
         self.horizontalLayout.addLayout(self.verticalLayout)
 
@@ -156,9 +161,9 @@ class Ui_eCCM(object):
         self.adjLeftOuterBtn.clicked.connect(self.rawPreviewWidget.adj_roi_outerleft)
         self.adjRightOuterBtn.clicked.connect(self.rawPreviewWidget.adj_roi_outerright)
         self.adjTopInnerBtn.clicked.connect(self.rawPreviewWidget.adj_roi_innertop)
-        self.pushButton_2.clicked.connect(self.rawPreviewWidget.adj_roi_innerleft)
-        self.pushButton.clicked.connect(self.rawPreviewWidget.adj_roi_innerbottom)
-        self.pushButton_3.clicked.connect(self.rawPreviewWidget.adj_roi_innerright)
+        self.adjLeftInnerBtn.clicked.connect(self.rawPreviewWidget.adj_roi_innerleft)
+        self.adjBottomInnerBtn.clicked.connect(self.rawPreviewWidget.adj_roi_innerbottom)
+        self.adjRightInnerBtn.clicked.connect(self.rawPreviewWidget.adj_roi_innerright)
         self.previewBrightSlider.valueChanged.connect(self.rawPreviewWidget.preview_brigh_adj)
         self.previewBrightSlider.valueChanged.connect(eCCM.show_preview_bright)
         self.patchSizeSlider.valueChanged.connect(self.rawPreviewWidget.patch_size_change)
@@ -169,20 +174,20 @@ class Ui_eCCM(object):
     # setupUi
 
     def retranslateUi(self, eCCM):
-        eCCM.setWindowTitle(QCoreApplication.translate("eCCM", u"eCCM", None))
-        self.importRawBtn.setText(QCoreApplication.translate("eCCM", u"import raw", None))
-        self.label.setText(QCoreApplication.translate("eCCM", u"patch size:", None))
-        self.groupBox.setTitle(QCoreApplication.translate("eCCM", u"adjust ROI", None))
-        self.adjTopOuterBtn.setText(QCoreApplication.translate("eCCM", u"^", None))
-        self.adjLeftOuterBtn.setText(QCoreApplication.translate("eCCM", u"<", None))
-        self.adjRightOuterBtn.setText(QCoreApplication.translate("eCCM", u">", None))
-        self.adjBottomOuterBtn.setText(QCoreApplication.translate("eCCM", u"v", None))
-        self.adjTopInnerBtn.setText(QCoreApplication.translate("eCCM", u"v", None))
-        self.pushButton.setText(QCoreApplication.translate("eCCM", u"^", None))
-        self.pushButton_2.setText(QCoreApplication.translate("eCCM", u">", None))
-        self.pushButton_3.setText(QCoreApplication.translate("eCCM", u"<", None))
-        self.previewBrightLabel.setText(QCoreApplication.translate("eCCM", u"preview brightness:1.0", None))
-        self.importTargetBtn.setText(QCoreApplication.translate("eCCM", u"import target + gamma", None))
-        self.calcuateCcmBtn.setText(QCoreApplication.translate("eCCM", u"calculate ccm", None))
+        eCCM.setWindowTitle(QCoreApplication.translate("eCCM", "eCCM", None))
+        self.importRawBtn.setText(QCoreApplication.translate("eCCM", "import raw", None))
+        self.label.setText(QCoreApplication.translate("eCCM", "patch size:", None))
+        self.groupBox.setTitle(QCoreApplication.translate("eCCM", "adjust ROI", None))
+        self.adjTopOuterBtn.setText(QCoreApplication.translate("eCCM", "^", None))
+        self.adjLeftOuterBtn.setText(QCoreApplication.translate("eCCM", "<", None))
+        self.adjRightOuterBtn.setText(QCoreApplication.translate("eCCM", ">", None))
+        self.adjBottomOuterBtn.setText(QCoreApplication.translate("eCCM", "v", None))
+        self.adjTopInnerBtn.setText(QCoreApplication.translate("eCCM", "v", None))
+        self.adjBottomInnerBtn.setText(QCoreApplication.translate("eCCM", "^", None))
+        self.adjLeftInnerBtn.setText(QCoreApplication.translate("eCCM", ">", None))
+        self.adjRightInnerBtn.setText(QCoreApplication.translate("eCCM", "<", None))
+        self.previewBrightLabel.setText(QCoreApplication.translate("eCCM", "preview brightness:1.0", None))
+        self.importTargetBtn.setText(QCoreApplication.translate("eCCM", "import target + gamma", None))
+        self.calcuateCcmBtn.setText(QCoreApplication.translate("eCCM", "calculate ccm", None))
     # retranslateUi
 

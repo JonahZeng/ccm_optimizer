@@ -16,6 +16,7 @@ from src.common_utils import (
     oklab_to_rgb, rgb_to_oklab, calc_lab_distance, make_ccm_from_chromosome, rgb_to_lab, inv_gamma_vectorized
 )
 from src.gd_optim import calc_cc_matrix_gd_lab_error
+from src.gd_optim_without_bp import calc_cc_matrix_gd_lab_error_no_bp
 
 
 class RawInfoDlg(QDialog):
@@ -427,7 +428,13 @@ class ECcmFrom(QWidget):
 
         rgb_mean_array_18 = rgb_mean_array[:3, :].reshape((18, 3))
         assert isinstance(self.linear_lab_patch_target, np.ndarray) and isinstance(self.lab_patch_weight, np.ndarray)
-        ccm1 = calc_cc_matrix_gd_lab_error(rgb_mean_array_18, self.linear_lab_patch_target, self.lab_patch_weight, self.gamma_en, self.gamma_curve, init_cc)
+        if self.ui.optimizeModeComboBox.currentIndex() ==  0:
+            ccm1 = calc_cc_matrix_gd_lab_error(rgb_mean_array_18, self.linear_lab_patch_target, self.lab_patch_weight, self.gamma_en, self.gamma_curve, init_cc)
+        elif self.ui.optimizeModeComboBox.currentIndex() == 1:
+            ccm1 = calc_cc_matrix_gd_lab_error_no_bp(rgb_mean_array_18, self.linear_lab_patch_target, self.lab_patch_weight, self.gamma_en, self.gamma_curve, init_cc)
+        else:
+            QMessageBox.critical(self, "error", "请选择正确的优化模式", QMessageBox.StandardButton.Ok, QMessageBox.StandardButton.Cancel)
+            return
 
         # init_cc0, init_cc1 = self.init_ccm_in_random_lab_space(rgb_mean_array)
         # print('初始cc参数', init_cc)
